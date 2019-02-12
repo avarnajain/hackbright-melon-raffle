@@ -1,7 +1,7 @@
 """Read customer data from file and run a raffle."""
 
 from random import choice
-
+import sys
 
 class Customer(object):
     """A customer at Ubermelon."""
@@ -42,7 +42,7 @@ def get_customers_from_file(customer_file_path):
 def pick_winner(customers):
     """Choose a random winner from list of customers."""
 
-    chosen_customer = random.choice(customers)
+    chosen_customer = choice(customers)
 
     print("Tell {name} at {email} that they've won".format(
         name=chosen_customer.name,
@@ -50,8 +50,10 @@ def pick_winner(customers):
         ))
 
 
-def run_raffle():
+def run_raffle(customer_filepath):
     """Run the weekly raffle."""
 
-    customers = get_customers_from_file("customers.txt")
+    customers = get_customers_from_file(customer_filepath)
     pick_winner(customers)
+
+run_raffle(sys.argv[1])
