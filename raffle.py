@@ -44,7 +44,7 @@ def pick_winner(customers):
 
     chosen_customer = choice(customers)
 
-    print("Tell {name} at {email} that they've won".format(
+    print("Tell {name} at {email} that they've won!".format(
         name=chosen_customer.name,
         email=chosen_customer.email
         ))
